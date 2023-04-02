@@ -1,22 +1,5 @@
-const tintColorLight = '#2f95dc';
-const tintColorDark = '#fff';
-
 export default {
-  light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: 'white',
-    background: '#000',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
-  },
-  primary:"#0000FF",
+    primary:"#0000FF",
     secondary:"#4ecdc4",
     black:"#000",
     white:"#fff",
@@ -46,7 +29,6 @@ export default {
         medium:"#0000e4",
         dark:"#000049",
         reg:"rgb(0, 0, 255)",
-        lightDark:"#000059"
     },
     teal:{
         light:"#c9fefe",
@@ -65,6 +47,38 @@ export default {
         medium:"rgb(200,200,200)",
         dark:"rgb(228, 208, 10)",
         reg:"	rgb(176,176,176)",
-        lightLight:"rgba(255, 245, 245,0.9)"
     },
-};
+
+
+    
+    // blueGrey:{
+    //     primary:blueGrey[600],
+    //     secondary:blueGrey[300],
+    //     light:blueGrey[100]
+    // },
+    // red:{
+    //     primary:red[600],
+    //     secondary:red[300],
+    //     light:red[100]
+    // },
+    // green:{
+    //     primary:green[600],
+    //     secondary:green[300],
+    //     light:green[100]
+    // },
+    // brown:{
+    //     primary:brown[600],
+    //     secondary:brown[300],
+    //     light:brown[100]
+    // },
+    // blue:{
+    //     primary:blue[600],
+    //     secondary:blue[300],
+    //     light:blue[100]
+    // },
+    // purple:{
+    //     primary:purple[600],
+    //     secondary:purple[300],
+    //     light:purple[100]
+    // },
+}
