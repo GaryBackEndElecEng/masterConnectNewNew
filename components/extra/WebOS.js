@@ -12,7 +12,7 @@ const LINK = ({ link }) => {
       padding: 5,
     }}
   >
-    <Text style={[{ fontSize: 20, color: "black" }]}> view page</Text>
+    <Text style={[{ fontSize: 20, color: "white" }]}> view page</Text>
   </Link>
     )
 };

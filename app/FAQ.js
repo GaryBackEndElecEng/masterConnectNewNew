@@ -21,9 +21,9 @@ export default function FAQ() {
       <Image
         style={styles.image_}
         source={{uri:`${staticImage}/${faq}`}}
-        placeholder={blurhash}
+        //placeholder={blurhash}
         contentFit="contain"
-        transition={500} //transitions the merging of the image
+        //transition={500} //transitions the merging of the image
     />
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       

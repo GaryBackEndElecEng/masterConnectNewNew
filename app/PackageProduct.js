@@ -14,8 +14,8 @@ import { Image } from "expo-image";
 import api from "../components/axios/api";
 import Colors from "../constants/Colors";
 import WebOS from "../components/extra/WebOS";
-import { Link, useSearchParams,useRouter } from "expo-router";
-import Services from '../components/Services';
+import { Link, useSearchParams, useRouter } from "expo-router";
+import Services from "../components/Services";
 
 import {
   useFonts,
@@ -26,12 +26,13 @@ import {
 import { Button } from "@react-native-material/core";
 
 const productProduct = () => {
+  const serviceRef = React.useRef();
   const productUrl = "/account/product/";
-  const route=useRouter();
+  const route = useRouter();
   const params = useSearchParams();
   const { id, name } = params;
   const [loaded, error] = useFonts();
-  const { width,height } = useWindowDimensions();
+  const { width, height } = useWindowDimensions();
   const Roboto = loaded && { fontFamily: Roboto_100Thin };
   const Roboto700 = loaded && { fontFamily: Roboto_700Bold };
   const jamieProject = "https://jamie-project.herokuapp.com";
@@ -41,6 +42,7 @@ const productProduct = () => {
   const masterconnect = "https://www.master-connect.ca";
   const [product, setProduct] = React.useState({ loaded: false, data: {} });
   const [openServices, setOpenServices] = React.useState(false);
+  const [getHeight, setGetHeight] = React.useState(0);
 
   React.useEffect(() => {
     const getProduct = async () => {
@@ -57,53 +59,57 @@ const productProduct = () => {
     };
     getProduct();
   }, [id]);
+  
 
-    const handleServices=(e)=>{
-      e.preventDefault();
-      // console.log(services);
-      if(!openServices){
-        setOpenServices(true);
-      }else{
-        setOpenServices(false);
-      }
-      
+  const handleServices = (e) => {
+    e.preventDefault();
+    if (!openServices) {
+      setOpenServices(true);
+    } else {
+      setOpenServices(false);
     }
+  };
   return (
-    <View style={[styles.container, { width: width }]}>
+    <View style={[styles.container, { width: width, height: height }]}>
       {product.loaded && product.data && (
-        <View style={{width:"100%",marginBottom:30,marginTop:0}}>
-          
+        <View style={{ width: "100%", marginBottom: 30, marginTop: 0 }}>
           <Image
-            style={[styles.image_, { width: "100%", height: 200,borderWidth:2 }]}
+            style={[
+              styles.image_,
+              { width: "100%", height: 200, borderWidth: 2 },
+            ]}
             source={{ uri: `${staticImage}/${product.data.imageName}` }}
-            placeholder={blurhash}
+            //placeholder={blurhash}
             contentFit="contain"
-            transition={500} //transitions the merging of the image
+            //transition={500} //transitions the merging of the image
           />
           <Text style={[styles.title, Roboto]}>{name}</Text>
           <Text style={[styles.monthly, Roboto]}>
             5Yr ${product.data.monthly}.00 monthly
           </Text>
-          {!openServices &&
-          <View style={{ width: "95%" }}>
-            <Text style={[styles.summaryTitle, Roboto700]}>Summary</Text>
-            <Text style={[styles.summary, Roboto]}>
-              {product.data.summary}
-            </Text>
-          
-            <Text style={[styles.summaryTitle, Roboto700]}>Description</Text>
-            <Text style={[styles.summary, Roboto]}> {product.data.desc}</Text>
-          </View>
-          }
-          <TouchableOpacity >
-            <Button title="services" color={Colors.blue.dark} style={{color:"white"}} onPress={(e)=>handleServices(e)} />
+          {!openServices && (
+            <View style={{ width: "95%" }}>
+              <Text style={[styles.summaryTitle, Roboto700]}>Summary</Text>
+              <Text style={[styles.summary, Roboto]}>
+                {product.data.summary}
+              </Text>
+
+              <Text style={[styles.summaryTitle, Roboto700]}>Description</Text>
+              <Text style={[styles.summary, Roboto]}> {product.data.desc}</Text>
+            </View>
+          )}
+          <TouchableOpacity ref={serviceRef}  >
+            <Button
+              title="services"
+              color={Colors.blue.dark}
+              style={{ color: "white" }}
+              onPress={(e) => handleServices(e)}
+            />
           </TouchableOpacity>
-          {openServices &&
-            <Services services={product.data.services}/>
-          }
+          {openServices && <Services services={product.data.services} />}
         </View>
       )}
-      <View style={styles.separator}/>
+      <View style={styles.separator} />
     </View>
   );
 };
@@ -117,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignproducts: "center",
-    backgroundColor:"white"
+    backgroundColor: "white",
   },
   main: {
     marginVertical: 30,
@@ -169,7 +175,7 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 10,
     width: "100%",
-    marginBottom:300
+    marginBottom: 300,
   },
   separator2: {
     marginVertical: 20,

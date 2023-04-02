@@ -60,9 +60,9 @@ const RenderPackage = ({ item }) => {
         <Image
           style={[styles.image_, { width: "100%", height: 200 }]}
           source={{ uri: `${staticImage}/${Package_.data.image}` }}
-          placeholder={blurhash}
+          //placeholder={blurhash}
           contentFit="contain"
-          transition={500} //transitions the merging of the image
+          //transition={500} //transitions the merging of the image
         />
         <Text style={[styles.monthly, roboto]}>
           5-yr: ${Package_.data.monthly}.00 monthly
@@ -80,7 +80,7 @@ const RenderPackage = ({ item }) => {
             alignPackages: "center",
             marginHorizontal: 1,
             paddingHorizontal:10,
-            backgroundColor:Colors.blue.light
+            backgroundColor:Colors.blue.dark
             
           }}
           onPress={(e) => handleOpen(e, Package_.data.products[0])}
@@ -95,7 +95,7 @@ const RenderPackage = ({ item }) => {
               />
             )}
           />
-          <Text style={[roboto700, { fontSize: 26,marginTop:5 }]}>products</Text>
+          <Text style={[roboto700, { fontSize: 26,marginTop:5,color:"white" }]}>products</Text>
         </Pressable>
         </View>
       

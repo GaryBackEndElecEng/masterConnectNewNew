@@ -30,9 +30,9 @@ const Service=({service})=>{
             <Image
           style={[styles.image, { width: "100%", height: 100 }]}
           source={{ uri: `${staticImage}/${item.data.image}` }}
-          placeholder={blurhash}
+          //placeholder={blurhash}
           contentFit="contain"
-          transition={1000} //transitions the merging of the image
+          //transition={1000} //transitions the merging of the image
         />
             <View style={styles.serviceContent}>
                 <Text style={[styles.serviceSubTitle,styles.alignContent,roboto700]}>Summary</Text>

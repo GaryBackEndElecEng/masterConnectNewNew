@@ -33,9 +33,9 @@ export default function contact() {
       <Image
         style={[styles.image, { width: width, height: 100 }]}
         source={{ uri: `${staticImage}/${coupleOnBeach}` }}
-        placeholder={blurhash}
+        //placeholder={blurhash}
         contentFit="cover"
-        transition={2000} //transitions the merging of the image
+        //transition={200} //transitions the merging of the image
       />
       { !openForm &&
       <View style={{rowGap:10,flex:1}}>

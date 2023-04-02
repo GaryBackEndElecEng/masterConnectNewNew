@@ -40,9 +40,9 @@ const Product =({width,item})=>{
         <Image
         style={[styles.image_,{width:"100%",height:200}]}
         source={{uri:`${staticImage}/${product.data.imageName}`}}
-        placeholder={blurhash}
+        //placeholder={blurhash}
         contentFit="contain"
-        transition={500} //transitions the merging of the image
+        //transition={500} //transitions the merging of the image
         />
         <Text style={[styles.monthly,Roboto]}> 5Yr ${product.data.monthly}.00 monthly</Text>
         <View style={{width:"95%"}}>
@@ -165,9 +165,10 @@ const styles = StyleSheet.create({
     alignItems:"center",
     width: '80%',
     backgroundColor:"white",
-    
-    // backgroundColor:Colors.blue.dark,
-    color:"white"
+    borderWidth:1,
+    backgroundColor:Colors.blue.dark,
+    color:"white",
+    borderRadius:20/2
   },
   shadowProp:{
     shadowOffset:{width:2,height:2},
