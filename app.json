@@ -2,10 +2,10 @@
   "expo": {
     "name": "mainApp",
     "slug": "mainApp",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "acme",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -15,18 +15,29 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "updates":{
+      "fallbackToCacheTimeout":0
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.garywallace.masterconnectNewApp"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/favico.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.garywallace.masterconnectNewApp",
+      "versionCode":1
     },
     "web": {
       "bundler": "metro",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favico.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8bc019d8-4a47-4b52-8111-9d4b64b68cb9"
+      }
     }
   }
 }
